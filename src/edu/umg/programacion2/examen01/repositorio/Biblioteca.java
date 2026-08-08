@@ -128,8 +128,24 @@ public class Biblioteca {
 	 * - Si no hay coincidencias, retorna una lista vacía (no null).
 	 */
 	public List<Libro> buscarPorTituloParcial(String texto) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar buscarPorTituloParcial() en Biblioteca");
+		
+		List<Libro> resultados = new ArrayList<>();
+		if (libros == null || texto == null) {
+			return resultados;}
+
+			String textoEnMinusculas = texto.toLowerCase();
+
+			for (Libro libro : libros) {
+			if (libro != null && libro.getTitulo() != null) {
+			String nombreEnMinusculas = libro.getTitulo().toLowerCase();
+								
+			if (nombreEnMinusculas.contains(textoEnMinusculas)) {
+			resultados.add(libro);  }
+					}
+
+			}
+			
+			return resultados;
 	}
 
 	/**
