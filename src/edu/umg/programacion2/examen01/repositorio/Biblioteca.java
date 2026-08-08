@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
 import edu.umg.programacion2.examen01.excepciones.LibroNoDisponibleException;
 import edu.umg.programacion2.examen01.modelo.Libro;
 
@@ -86,11 +87,26 @@ public class Biblioteca {
 	 * - No usa streams ni lambdas, solo un for-each y el Map.
 	 * - Usa Map.getOrDefault(), no un HashSet auxiliar ni containsKey().
 	 * - Si el catálogo está vacío, retorna un Map vacío (no null).
+	 * 
+	 * 
 	 */
+	
+	
 	public Map<String, Integer> contarLibrosPorCategoria() {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar contarLibrosPorCategoria() en Biblioteca");
+		
+		
+	Map<String, Integer> conteo = new HashMap<>();
+				
+	for (Libro libro : libros) { String categoria = libro.getCategoria();
+					
+	int cantidad = conteo.getOrDefault(categoria, 0);
+	conteo.put(categoria, cantidad + 1); }
+				
+	return conteo;
 	}
+	
+	
+	
 
 	/**
 	 * PREGUNTA PRÁCTICA 2 (20 pts): completar buscarPorTituloParcial().
